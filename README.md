@@ -6,7 +6,7 @@ This demo page supports users to directly experience the core features of Featur
 
 ## Requirements
 
-Click [Docusaurus 2](https://xxx.io/) to enter the demo page, and follow the task requirements on the demo page to operate the feature toggles on the FeatureProbe platform, and view the results on the demo page.
+Click [Demo](https://xxx.io/) to enter the demo page, and follow the task requirements on the demo page to operate the feature toggles on the FeatureProbe platform, and view the results on the demo page.
 
 ### Installation
 
