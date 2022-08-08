@@ -1,45 +1,38 @@
 # feature-probe-demo-ui
-FeatureProbe Demo UI
-# Demo Website
 
 This demo page supports users to directly experience the core features of FeatureProbe without setting up a docker environment.
 
-## Requirements
-
-Click [Demo](https://xxx.io/) to enter the demo page, and follow the task requirements on the demo page to operate the feature toggles on the FeatureProbe platform, and view the results on the demo page.
+## Getting Started
 
 ### Installation
 
 ```
-npm install
+yarn
 ```
 
-### Local Development for English Version
+### Local Development
 
 ```
-npm run start
+yarn start
 ```
 
-This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
-
-### Local Development for Chinese Version
-
-```
-$ npm run start -- --locale zh-CN
-```
-
-This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
+This command starts a local development server and opens up a browser window.
 
 ### Build
 
 ```
-$ npm run build
+$ yarn build
 ```
 
-This command generates static content into the `build` directory and can be served using any static contents hosting service.
+## Contributing
+We are working on continue evolving FeatureProbe core, making it flexible and easier to use. 
+Development of FeatureProbe happens in the open on GitHub, and we are grateful to the 
+community for contributing bugfixes and improvements.
 
-### Deployment
+Please read [CONTRIBUTING](https://github.com/FeatureProbe/featureprobe/blob/master/CONTRIBUTING.md) 
+for details on our code of conduct, and the process for taking part in improving FeatureProbe.
 
-```
-$ npm run deploy
-```
+
+## License
+
+This project is licensed under the Apache 2.0 License - see the [LICENSE](LICENSE) file for details.
