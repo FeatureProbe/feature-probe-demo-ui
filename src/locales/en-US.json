@@ -42,6 +42,7 @@
   "login.demo.tip": "No further data required",
   "login.email.text": "Email",
   "login.email.placeholder.text": "Please input email address",
+  "login.email.invalid.text": "Invalid email address",
   "login.signin": "Sign in",
   "login.error.message": "Login error, please retry!"
 }

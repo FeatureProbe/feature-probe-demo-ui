@@ -6,6 +6,7 @@ function checkStatus(response: Response) {
   if (response.status >= 200 && response.status < 300) {
     return response;
   }
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const error: any = new Error(response.statusText);
   error.response = response;
   throw error;

@@ -378,6 +378,10 @@ const Home = () => {
                           value: 30,
                           message: intl.formatMessage({id: 'login.email.placeholder.text'})
                         },
+                        pattern: {
+                          value: /^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/i,
+                          message: intl.formatMessage({id: 'login.email.invalid.text'})
+                        }
                       })
                     }
                     onChange={async (e: SyntheticEvent, detail: InputOnChangeData) => {

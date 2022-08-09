@@ -42,6 +42,7 @@
   "login.demo.tip": "无须进一步提供其它数据",
   "login.email.text": "邮箱",
   "login.email.placeholder.text": "请输入邮箱地址",
+  "login.email.invalid.text": "无效的邮箱地址",
   "login.signin": "登录",
   "login.error.message": "登录错误，请重试!"
 }

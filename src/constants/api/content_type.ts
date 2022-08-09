@@ -1,3 +1,4 @@
+// eslint-disable-next-line check-file/filename-naming-convention
 export const ApplicationJson = () => {
   return {
     'Content-Type': 'application/json',
