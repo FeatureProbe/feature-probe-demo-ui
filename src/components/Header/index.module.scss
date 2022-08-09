@@ -1,0 +1,175 @@
+.container {
+  position: sticky;
+  position: -webkit-sticky;
+  top: 0;
+  z-index: 100;
+  background: #EB5157;
+  opacity: 0.8;
+  box-shadow: none;
+}
+
+.container-scroll {
+  // background: #ffffff;
+  // box-shadow: 0 2px 4px 0 rgba(0,0,0,0.01), 0 3px 6px 3px rgba(0,0,0,0.01), 0 2px 6px 0 rgba(0,0,0,0.03);
+}
+
+.header {
+  height: 98px;
+  font-size: 16px;
+  max-width: 1200px;
+  padding: 36px 20px 0;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+.logo {
+  margin-right: 134px;
+}
+
+.logo-image {
+  width: 207px;
+}
+
+.navs {
+  flex: 1;
+  display: block;
+  height: 48px;
+  line-height: 48px;
+}
+
+.btns {
+  display: none;
+}
+
+.nav-item {
+  font-family: PingFangSC-Medium;
+  color: #ffffff;
+  margin-right: 32px;
+  cursor: pointer;
+}
+
+.btn-login {
+  font-family: PingFangSC-Medium;
+  font-size: 16px;
+  color: #000000;
+  margin-right: 24px;
+  display: inline-block;
+  vertical-align: middle;
+  line-height: 40px;
+  cursor: pointer;
+}
+
+.btn-register {
+  width: 100px;
+  height: 40px !important;
+  font-size: 16px !important;
+  font-family: PingFangSC-Medium !important;
+  border-radius: 8px !important;
+  cursor: pointer;
+}
+
+.icon {
+  font-size: 24px !important;
+  vertical-align: middle;
+  cursor: pointer;
+  color: #ffffff;
+}
+
+.menu-btn {
+  display: none;
+}
+
+.menu-item {
+  font-size: 17px;
+  color: rgba(0, 0, 0, 0.84);
+  line-height: 60px;
+  margin-left: 16px;
+  border-bottom: 1px solid #eee;
+  cursor: pointer;
+}
+
+.menu-item:last-child {
+  border-bottom: none;
+}
+
+.menus {
+  display: none;
+}
+
+.popup {
+  padding: 4px 0 !important;
+  margin-top: 0 !important;
+}
+
+.language-popup {
+  cursor: pointer;
+  margin-right: 10px;
+  line-height: 48px;
+  color: #fff;
+}
+
+.dropdown-menu {
+  min-width: 120px;
+  color: #212529;
+}
+
+.dropdown-menu-item {
+  height: 28px;
+  line-height: 28px;
+  cursor: pointer;
+  font-size: 12px;
+  padding: 0 12px;
+}
+
+.dropdown-menu-item:hover {
+  background-color: #F8F9FA;
+}
+
+@media (max-width: 1100px) {
+  .container {
+    opacity: 1;
+  }
+
+  .header {
+    height: 60px;
+    padding: 0 20px;
+  }
+
+  .logo {
+    flex: 1;
+    margin-right: 0;
+    padding-top: 15px;
+  }
+
+  .logo-image {
+    width: 124px;
+  }
+
+  .navs {
+    display: none;
+  }
+
+  .btns {
+    display: none;
+  }
+
+  .menu-btn {
+    display: block;
+    line-height: 60px;
+  }
+
+  .menus {
+    position: fixed;
+    top: 60px;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: #ffffff;
+    display: block;
+  }
+
+  .language-popup {
+    line-height: 60px;
+  }
+}
