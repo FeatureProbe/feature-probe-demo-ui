@@ -1,0 +1,47 @@
+{
+  "header.start": "Home",
+  "header.status": "Enabled/disabled",
+  "header.user": "For user",
+  "header.percentage": "Percentage",
+  "header.variation": "Variations",
+
+  "demo.title": "Starting the demonstration",
+  "demo.description": "Here is a SPA(Single Page Application) written in React. It monitors the feature toggles’ changes and updates its UI according to the toggle status. Click the link below and start the free demonstration hosted by FeatureProbe.",
+  "demo.userid": "Your userId is 00003.",
+
+  "demo.task1.title": "Task 1: enable/disable a feature toggle.",
+  "demo.task1.description": "We have launched a marketing promotion campaign. The basic use case is inviting all end users or not letting them know the campaign by toggling the toggle between “enable” and ”disable” status.",
+  "demo.task1.task.left": "You will find the “",
+  "demo.task1.task.right": "” toggle and “enable” it so that all end users will see the marketing campaign.",
+  "demo.task1.status.on": "The entry page of the campaign is: ",
+  "demo.task1.status.off": "Not showing the campaign entry page.",
+
+  "demo.task2.title": "Task 2: enable a toggle for a group of specified users.",
+  "demo.task2.description": "We have launched a marketing promotion campaign. We are going to invite some “internal users” in the first place and let them give it a try. If it goes smoothly, we will extend the invitation to the rest users.",
+  "demo.task2.task.left": "You will find the “",
+  "demo.task2.task.right": "” toggle first. Since you are one of the “internal users”, you will want to add your userId into the custom rules so that you will be invited to the marketing campaign. Remember that your userId is 00003.",
+  "demo.task2.status.on": "The entry page of the campaign shown to userId 00003 is:  ",
+  "demo.task2.status.off": "Not showing the campaign entry page to userId 00003.",
+
+  "demo.task3.title": "Task 3: enable a toggle to users by percentage.",
+  "demo.task3.description": "To mitigate the risks, we will allow a proportional of end users to join the newly launched market campaign.",
+  "demo.task3.task.left": "You will find the “",
+  "demo.task3.task.right": "” toggle and modify the percentage setting. The current setting is 20% and it allow as many as 20% of total users to join. But you cannot see the campaign entry page because you are not one of the 20% users. Try to increase the percentage until you can see the entry page.",
+  "demo.task3.status.on": "The entry page of the campaign shown to userId 00003 is: ",
+  "demo.task3.status.off": "Not showing the campaign entry page to userId 00003.",
+
+  "demo.task4.title": "Task 4: customize groups.",
+  "demo.task4.description": "We decide to show different price tags to different users of a specific product which will be put on the rack shortly. It is not ideal to give a special discount to some users based on a true/false toggle, and we need more options. In FeatureProbe, you can customize pricing groups and specify toggles to each group to achieve rich settings.",
+  "demo.task4.task.left": "You will find the “",
+  "demo.task4.task.right": "” toggle and add a new pricing group. Set the group's name and value as “30” respectively. Select your userId(here is 00003) and set the return value as the newly added group 30.",
+  "demo.task4.status": "The pricing format shown to userId 00003 is: ${ value }",
+
+  "demo.ready": "You are now in the「feature」delivery new era.",
+
+  "login.demo.text": "Access FeatureProbe demo instance",
+  "login.demo.tip": "No further data required",
+  "login.email.text": "Email",
+  "login.email.placeholder.text": "Please input email address",
+  "login.signin": "Sign in",
+  "login.error.message": "Login error, please retry!"
+}

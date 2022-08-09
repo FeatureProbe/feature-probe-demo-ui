@@ -1,0 +1,30 @@
+body {
+  margin: 0;
+  font-family: 'Helvetica Neue', Helvetica, Arial, 'PingFang SC', 'Heiti SC', 'Hiragino Sans GB', 'Microsoft YaHei', sanf-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+@font-face {
+  font-family: DIDIFDBlack;
+  src: url('fonts/DIDIFD-Black.otf');
+}
+
+@font-face {
+  font-family: DIDIFDMedium;
+  src: url('fonts/DIDIFD-Medium.otf');
+}
+
+@font-face {
+  font-family: DIDIFDRegular;
+  src: url('fonts/DIDIFD-Regular.otf');
+}
+
+html {
+  scroll-behavior: smooth;
+}

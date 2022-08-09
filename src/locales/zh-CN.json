@@ -1,0 +1,47 @@
+{
+  "header.start": "开始",
+  "header.status": "启用/禁用",
+  "header.user": "特定用户",
+  "header.percentage": "百分比放量",
+  "header.variation": "自定义分组",
+
+  "demo.title": "开始演示",
+  "demo.description": "这是一个用React编写的单页应用程序。它可以自动监测功能开关的变更，并根据变更同步更新该界面。点击下方链接，可使用FeatureProbe的托管演示实例，免费体验控制该应用程序：",
+  "demo.userid": "你的 userId：00003",
+
+  "demo.task1.title": "任务一：启用/禁用功能开关",
+  "demo.task1.description": "我们新上线了一个运营活动，最简单的使用方式是为所有用户开放【启用】或关闭【禁用】它。",
+  "demo.task1.task.left": "你的任务是进入到为“",
+  "demo.task1.task.right": "”的功能开关，并尝试【启用】它。确保运营活动入口对所有用户开放。",
+  "demo.task1.status.on": "运营活动入口展示为： ",
+  "demo.task1.status.off": "运营活动入口不展示",
+
+  "demo.task2.title": "任务二：为特定用户开启功能开关",
+  "demo.task2.description": "我们上线了一个运营活动，计划先给部分「内部用户」开放并进行试用，试用没问题后，再将其开放给其他用户。",
+  "demo.task2.task.left": "你的任务是进入功能开关“",
+  "demo.task2.task.right": "”，你作为内部用户的一员，需要将自己的userId也添加到自定义规则中，确保运营活动入口对你是开放的。你的userId为：00003 ",
+  "demo.task2.status.on": "运营活动入口对 userId 00003 展示为：",
+  "demo.task2.status.off": "运营活动入口对 userId 00003 不展示",
+
+  "demo.task3.title": "任务三：按百分比放量",
+  "demo.task3.description": "我们希望只为一定比例的用户，开放一个新的运营活动，从而减少一定的发布风险。",
+  "demo.task3.task.left": "你的任务是进入功能开关“",
+  "demo.task3.task.right": "”，并调整放量的百分比。当前的放量比例是20%，此时运营活动入口对你不可见，尝试提高放量的百分比，确保你能看到运营活动入口。",
+  "demo.task3.status.on": "运营活动入口对 userId 00003 展示为：",
+  "demo.task3.status.off": "运营活动入口对 userId 00003 不展示",
+
+  "demo.task4.title": "任务四：自定义分组",
+  "demo.task4.description": "当我们想将上线一款商品，为不同的人展示不同的价格。只用true/false是不够的，在FeatureProbe中，你可以为功能开关自定义分组。",
+  "demo.task4.task.left": "你的任务是进入功能开关“",
+  "demo.task4.task.right": "”，并新添加一个价格分组，名称和值都设为“30”，并把自己userId（00003）的返回值选择为该分组。",
+  "demo.task4.status": "商品价格对 userId 00003 展示为：${ value }",
+
+  "demo.ready": "进入「功能」交付的全新时代",
+
+  "login.demo.text": "访问 FeatureProbe 演示实例",
+  "login.demo.tip": "无须进一步提供其它数据",
+  "login.email.text": "邮箱",
+  "login.email.placeholder.text": "请输入邮箱地址",
+  "login.signin": "登录",
+  "login.error.message": "登录错误，请重试!"
+}
