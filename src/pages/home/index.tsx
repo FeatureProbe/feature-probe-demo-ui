@@ -175,7 +175,7 @@ const Home = () => {
             </div>
             <div className={styles['task-desc']}>
               <FormattedMessage id='demo.task1.task.left' />
-              <a href='https://featureprobe.io/My_First_Project/online/feature_toggle01/targeting' target='_blank'>
+              <a href='https://featureprobe.io/My_Project/online/feature_toggle01/targeting' target='_blank'>
                 feature toggle01
               </a>
               <FormattedMessage id='demo.task1.task.right' />
@@ -219,7 +219,7 @@ const Home = () => {
             </div>
             <div className={styles['task-desc']}>
               <FormattedMessage id='demo.task2.task.left' />
-              <a href='https://featureprobe.io/My_First_Project/online/feature_toggle02/targeting' target='_blank'>
+              <a href='https://featureprobe.io/My_Project/online/feature_toggle02/targeting' target='_blank'>
                 feature toggle02
               </a>
               <FormattedMessage id='demo.task2.task.right' />
@@ -265,7 +265,7 @@ const Home = () => {
             </div>
             <div className={styles['task-desc']}>
               <FormattedMessage id='demo.task3.task.left' />
-              <a href='https://featureprobe.io/My_First_Project/online/feature_toggle03/targeting' target='_blank'>
+              <a href='https://featureprobe.io/My_Project/online/feature_toggle03/targeting' target='_blank'>
                 feature toggle03
               </a>
               <FormattedMessage id='demo.task3.task.right' />
@@ -309,7 +309,7 @@ const Home = () => {
             </div>
             <div className={styles['task-desc']}>
               <FormattedMessage id='demo.task4.task.left' />
-              <a href='https://featureprobe.io/My_First_Project/online/feature_toggle04/targeting' target='_blank'>
+              <a href='https://featureprobe.io/My_Project/online/feature_toggle04/targeting' target='_blank'>
                 feature toggle04
               </a>
               <FormattedMessage id='demo.task4.task.right' />
