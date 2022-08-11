@@ -1,12 +1,11 @@
 .home {
-  overflow-y: auto;
-  overflow-x: hidden;
   min-width: 375px;
 }
 
 .start {
   background: url('images/start-bg.png');
-  background-size: 100% 100%;
+  background-size: cover;
+    background-position: center;
   position: relative;
   padding-top: 230px;
   margin-top: -98px;
@@ -16,11 +15,11 @@
 .start-box {
   width: 985px;
   margin: 0 auto;
-  height: 415px;
   padding-top: 60px;
   text-align: center;
   background-color: rgba(255, 255, 255, 0.8);
   border-radius: 24px;
+  padding-bottom: 50px;
 }
 
 .start-box-title {
@@ -331,6 +330,7 @@
     height: auto;
     background-size: cover;
     background-position: center;
+    margin-top: -60px;
   }
 
   .start-box {

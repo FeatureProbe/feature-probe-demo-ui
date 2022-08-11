@@ -3,7 +3,6 @@ import { FormattedMessage } from 'react-intl';
 import { useHistory } from 'react-router-dom';
 import { Popup } from 'semantic-ui-react';
 import classNames from 'classnames';
-import logo from 'images/logo-white.svg';
 import Icon from 'components/Icon';
 import { I18NContainer } from 'hooks';
 import styles from './index.module.scss';
@@ -75,7 +74,11 @@ const Header = (props: IProps) => {
     <div className={cls}>
       <div className={styles.header} id='header'>
         <div className={styles.logo}>
-          <img className={styles['logo-image']} src={logo} alt='logo' />
+          {
+            isScroll 
+              ? <img className={styles['logo-image']} src={require('images/logo-text-dark.png')} alt='logo' />
+              : <img className={styles['logo-image']} src={require('images/logo-text-light.png')} alt='logo' />
+          }
         </div>
         <div className={styles.navs}>
           <span className={styles['nav-item']} onClick={() => { gotoStart(); }}>

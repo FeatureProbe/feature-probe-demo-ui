@@ -8,7 +8,7 @@ import { IProject } from 'interfaces';
 import Icon from 'components/Icon';
 import Header from 'components/Header';
 import Button from 'components/Button';
-import logo from 'images/logo-white.svg';
+import logo from 'images/logo.svg';
 import styles from './index.module.scss';
 
 const Home = () => {
@@ -16,10 +16,10 @@ const Home = () => {
   const [ firstTaskStatusOn, saveFirstTaskStatus ] = useState<boolean>(false);
   const [ secondTaskStatusOn, saveSecondTaskStatus ] = useState<boolean>(false);
   const [ thirdTaskStatusOn, saveThirdTaskStatus ] = useState<boolean>(false);
-  const [ fourthTaskStatusOn, saveFourthTaskStatus ] = useState<string>('');
+  const [ fourthTaskStatusOn, saveFourthTaskStatus ] = useState<number>(0);
   const [ loginOpen, setLoginOpen ] = useState<boolean>(false);
   const intl = useIntl();
-  const INTERVAVL_TIME = 10000;
+  const INTERVAVL_TIME = 1000;
 
   const {
     formState: { errors },
@@ -36,7 +36,7 @@ const Home = () => {
     const fisrtTaskResult = FP.boolValue('feature_toggle01', false);
     const secondTaskResult = FP.boolValue('feature_toggle02', false);
     const thirdTaskResult = FP.boolValue('feature_toggle03', false);
-    const fourthTaskResult = FP.stringValue('feature_toggle04', '');
+    const fourthTaskResult = FP.numberValue('feature_toggle04', 0);
 
     saveFirstTaskStatus(fisrtTaskResult);
     saveSecondTaskStatus(secondTaskResult);
@@ -87,10 +87,9 @@ const Home = () => {
   }, [init]);
 
   const scrollChange = useCallback(() => {
-    const top = document.getElementById('home')?.getBoundingClientRect().top;
-    const headerHeight = document.getElementById('header')?.clientHeight;
+    const top = document.getElementById('start')?.getBoundingClientRect().top;
 
-    if (top === headerHeight) {
+    if (top === 0) {
       setIsScroll(false);
     } else {
       setIsScroll(true);
@@ -188,7 +187,11 @@ const Home = () => {
                     <FormattedMessage id='demo.task1.status.on' />
                   </div>
                   <div>
-                    <img className={styles['task-result-img']} src={require('images/task1-result.png')} alt='result' />
+                    {
+                      localStorage.getItem('i18n')?.replaceAll('"', '') === 'en-US' 
+                        ? <img className={styles['task-result-img']} src={require('images/task-result-en.png')} alt='result' />
+                        : <img className={styles['task-result-img']} src={require('images/task-result.png')} alt='result' />
+                    }
                   </div>
                 </div>
               ) : (
@@ -228,7 +231,11 @@ const Home = () => {
                     <FormattedMessage id='demo.task2.status.on' />
                   </div>
                   <div>
-                    <img className={styles['task-result-img']} src={require('images/task1-result.png')} alt='result' />
+                    {
+                      localStorage.getItem('i18n')?.replaceAll('"', '') === 'en-US' 
+                        ? <img className={styles['task-result-img']} src={require('images/task-result-en.png')} alt='result' />
+                        : <img className={styles['task-result-img']} src={require('images/task-result.png')} alt='result' />
+                    }
                   </div>
                 </div>
               ) : (
@@ -270,7 +277,11 @@ const Home = () => {
                     <FormattedMessage id='demo.task3.status.on' />
                   </div>
                   <div>
-                    <img className={styles['task-result-img']} src={require('images/task1-result.png')} alt='result' />
+                    {
+                      localStorage.getItem('i18n')?.replaceAll('"', '') === 'en-US' 
+                        ? <img className={styles['task-result-img']} src={require('images/task-result-en.png')} alt='result' />
+                        : <img className={styles['task-result-img']} src={require('images/task-result.png')} alt='result' />
+                    }
                   </div>
                 </div>
               ) : (
@@ -314,7 +325,11 @@ const Home = () => {
                 }
               </div>
               <div>
-                <img className={styles['task-result-img']} src={require('images/task4-result.png')} alt='result' />
+                {
+                  localStorage.getItem('i18n')?.replaceAll('"', '') === 'en-US' 
+                    ? <img className={styles['task-result-img']} src={require('images/task4-result-en.png')} alt='result' />
+                    : <img className={styles['task-result-img']} src={require('images/task4-result.png')} alt='result' />
+                }
                 <div className={styles.price}>
                   { fourthTaskStatusOn } 
                 </div>

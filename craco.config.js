@@ -3,7 +3,8 @@ module.exports = {
   webpack: {
     configure: (webpackConfig, { env, paths }) => {
       webpackConfig.output = {
-        ...webpackConfig.output
+        ...webpackConfig.output,
+        publicPath: '/demo/'
       }
       return webpackConfig
     }

@@ -7,7 +7,7 @@
 
   "demo.title": "Starting the demonstration",
   "demo.description": "Here is a SPA(Single Page Application) written in React. It monitors the feature toggles’ changes and updates its UI according to the toggle status. Click the link below and start the free demonstration hosted by FeatureProbe.",
-  "demo.userid": "Your userId is 00003.",
+  "demo.userid": "Your userId is 00003",
 
   "demo.task1.title": "Task 1: enable/disable a feature toggle.",
   "demo.task1.description": "We have launched a marketing promotion campaign. The basic use case is inviting all end users or not letting them know the campaign by toggling the toggle between “enable” and ”disable” status.",
@@ -26,7 +26,7 @@
   "demo.task3.title": "Task 3: enable a toggle to users by percentage.",
   "demo.task3.description": "To mitigate the risks, we will allow a proportional of end users to join the newly launched market campaign.",
   "demo.task3.task.left": "You will find the “",
-  "demo.task3.task.right": "” toggle and modify the percentage setting. The current setting is 20% and it allow as many as 20% of total users to join. But you cannot see the campaign entry page because you are not one of the 20% users. Try to increase the percentage until you can see the entry page.",
+  "demo.task3.task.right": "” toggle and modify the percentage setting. The current setting is 40% and it allow as many as 40% of total users to join. But you cannot see the campaign entry page because you are not one of the 40% users. Try to increase the percentage until you can see the entry page.",
   "demo.task3.status.on": "The entry page of the campaign shown to userId 00003 is: ",
   "demo.task3.status.off": "Not showing the campaign entry page to userId 00003.",
 

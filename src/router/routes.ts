@@ -2,7 +2,7 @@ import Home from '../pages/home';
 
 export const blankRoutes = [
   {
-    path: '/',
+    path: '/demo',
     exact: true,
     component: Home
   },

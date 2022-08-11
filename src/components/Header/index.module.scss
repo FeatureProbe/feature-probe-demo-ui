@@ -3,14 +3,15 @@
   position: -webkit-sticky;
   top: 0;
   z-index: 100;
-  background: #EB5157;
-  opacity: 0.8;
+  background: rgba(235, 81, 87, 0.8);
   box-shadow: none;
+  color: #ffffff;
 }
 
 .container-scroll {
-  // background: #ffffff;
-  // box-shadow: 0 2px 4px 0 rgba(0,0,0,0.01), 0 3px 6px 3px rgba(0,0,0,0.01), 0 2px 6px 0 rgba(0,0,0,0.03);
+  background: #ffffff;
+  color: rgba(0, 0, 0, 0.84);
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.01), 0 3px 6px 3px rgba(0,0,0,0.01), 0 2px 6px 0 rgba(0,0,0,0.03);
 }
 
 .header {
@@ -28,7 +29,8 @@
 }
 
 .logo-image {
-  width: 207px;
+  width: 158px;
+  margin-top: 13px;
 }
 
 .navs {
@@ -44,8 +46,7 @@
 
 .nav-item {
   font-family: PingFangSC-Medium;
-  color: #ffffff;
-  margin-right: 32px;
+  margin-right: 60px;
   cursor: pointer;
 }
 
@@ -73,7 +74,6 @@
   font-size: 24px !important;
   vertical-align: middle;
   cursor: pointer;
-  color: #ffffff;
 }
 
 .menu-btn {
@@ -106,7 +106,6 @@
   cursor: pointer;
   margin-right: 10px;
   line-height: 48px;
-  color: #fff;
 }
 
 .dropdown-menu {
@@ -143,7 +142,7 @@
   }
 
   .logo-image {
-    width: 124px;
+    margin-top: 7px;
   }
 
   .navs {
