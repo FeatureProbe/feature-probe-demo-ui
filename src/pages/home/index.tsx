@@ -17,6 +17,8 @@ const Home = () => {
   const [ secondTaskStatusOn, saveSecondTaskStatus ] = useState<boolean>(false);
   const [ thirdTaskStatusOn, saveThirdTaskStatus ] = useState<boolean>(false);
   const [ fourthTaskStatusOn, saveFourthTaskStatus ] = useState<number>(0);
+  const [ fourthTaskResultShow, saveFourthTaskResult ] = useState<boolean>(false);
+
   const [ loginOpen, setLoginOpen ] = useState<boolean>(false);
   const intl = useIntl();
   const INTERVAVL_TIME = 1000;
@@ -42,6 +44,7 @@ const Home = () => {
     saveSecondTaskStatus(secondTaskResult);
     saveThirdTaskStatus(thirdTaskResult);
     saveFourthTaskStatus(fourthTaskResult);
+    saveFourthTaskResult(true);
   }, []);
 
   const initSDK = useCallback((sdkKey: string) => {
@@ -317,11 +320,10 @@ const Home = () => {
             <div className={styles['task-result-on']}>
               <div>
                 {
-                  intl.formatMessage({
-                    id: 'demo.task4.status'
-                  }, {
-                    value: fourthTaskStatusOn
-                  })
+                  intl.formatMessage({ id: 'demo.task4.status' })
+                }
+                {
+                  fourthTaskResultShow && <span>{ fourthTaskStatusOn }</span>
                 }
               </div>
               <div>
@@ -330,9 +332,13 @@ const Home = () => {
                     ? <img className={styles['task-result-img']} src={require('images/task4-result-en.png')} alt='result' />
                     : <img className={styles['task-result-img']} src={require('images/task4-result.png')} alt='result' />
                 }
-                <div className={styles.price}>
-                  { fourthTaskStatusOn } 
-                </div>
+                {
+                  fourthTaskResultShow && (
+                    <div className={styles.price}>
+                      { fourthTaskStatusOn } 
+                    </div>
+                  )
+                }
               </div>
             </div>
           </div>

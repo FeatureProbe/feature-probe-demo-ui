@@ -6,7 +6,7 @@
   "header.variation": "Variations",
 
   "demo.title": "Starting the demonstration",
-  "demo.description": "Here is a SPA(Single Page Application) written in React. It monitors the feature toggles’ changes and updates its UI according to the toggle status. Click the link below and start the free demonstration hosted by FeatureProbe.",
+  "demo.description": "Here is a SPA(Single Page Application). It updates its UI according to the toggle status configured on FeatureProbe platform. Click the link below to open FeatureProbe platform and follow the steps to run the demo.",
   "demo.userid": "Your userId is 00003",
 
   "demo.task1.title": "Task 1: enable/disable a feature toggle.",
@@ -34,7 +34,7 @@
   "demo.task4.description": "We decide to show different price tags to different users of a specific product which will be put on the rack shortly. It is not ideal to give a special discount to some users based on a true/false toggle, and we need more options. In FeatureProbe, you can customize pricing groups and specify toggles to each group to achieve rich settings.",
   "demo.task4.task.left": "You will find the “",
   "demo.task4.task.right": "” toggle and add a new pricing group. Set the group's name and value as “30” respectively. Select your userId(here is 00003) and set the return value as the newly added group 30.",
-  "demo.task4.status": "The pricing format shown to userId 00003 is: ${ value }",
+  "demo.task4.status": "The pricing format shown to userId 00003 is: $",
 
   "demo.ready": "You are now in the「feature」delivery new era.",
 

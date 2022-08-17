@@ -6,7 +6,7 @@
   "header.variation": "自定义分组",
 
   "demo.title": "开始演示",
-  "demo.description": "这是一个用React编写的单页应用程序。它可以自动监测功能开关的变更，并根据变更同步更新该界面。点击下方链接，可使用FeatureProbe的托管演示实例，免费体验控制该应用程序：",
+  "demo.description": "这是模拟一个使用了FeatureProbe功能开关的网页应用，通过FeatureProbe上的功能开关配置可以更新本页面行为。点击下方链接，可打开对应的FeatureProbe服务，免费体验控制本网页应用：",
   "demo.userid": "你的 userId：00003",
 
   "demo.task1.title": "任务一：启用/禁用功能开关",
@@ -34,7 +34,7 @@
   "demo.task4.description": "当我们想将上线一款商品，为不同的人展示不同的价格。只用true/false是不够的，在FeatureProbe中，你可以为功能开关自定义分组。",
   "demo.task4.task.left": "你的任务是进入功能开关“",
   "demo.task4.task.right": "”，并新添加一个价格分组，名称和值都设为“30”，并把自己userId（00003）的返回值选择为该分组。",
-  "demo.task4.status": "商品价格对 userId 00003 展示为：${ value }",
+  "demo.task4.status": "商品价格对 userId 00003 展示为：$",
 
   "demo.ready": "进入「功能」交付的全新时代",
 
