@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState, useRef, SyntheticEvent } from 'react';
 import { FormattedMessage, useIntl } from 'react-intl';
-import { FeatureProbe, FPUser } from 'featureprobe-client-sdk-js/dist/src';
+import { FeatureProbe, FPUser } from 'featureprobe-client-sdk-js';
 import { Modal, Form, InputOnChangeData } from 'semantic-ui-react';
 import { useForm } from 'react-hook-form';
 import { getProjectList, login } from 'services';
