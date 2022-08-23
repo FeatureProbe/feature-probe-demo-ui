@@ -361,6 +361,7 @@ const Home = () => {
       {/* login modal */}
       <Modal
         open={loginOpen}
+        closeOnEscape={false}
         closeOnDimmerClick={false}
         onClose={() => setLoginOpen(false)}
         onOpen={() => setLoginOpen(true)}
