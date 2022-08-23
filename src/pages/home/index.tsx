@@ -35,10 +35,10 @@ const Home = () => {
   const timer: { current: NodeJS.Timeout | null } = useRef(null);
 
   const getTaskStatus = useCallback(() => {
-    const fisrtTaskResult = FP.boolValue('feature_toggle01', false);
-    const secondTaskResult = FP.boolValue('feature_toggle02', false);
-    const thirdTaskResult = FP.boolValue('feature_toggle03', false);
-    const fourthTaskResult = FP.numberValue('feature_toggle04', 0);
+    const fisrtTaskResult = FP.boolValue('campaign_enable', false);
+    const secondTaskResult = FP.boolValue('campaign_allow_list', false);
+    const thirdTaskResult = FP.boolValue('campaign_percentage_rollout', false);
+    const fourthTaskResult = FP.numberValue('promotion_campaign', 0);
 
     saveFirstTaskStatus(fisrtTaskResult);
     saveSecondTaskStatus(secondTaskResult);
@@ -178,8 +178,8 @@ const Home = () => {
             </div>
             <div className={styles['task-desc']}>
               <FormattedMessage id='demo.task1.task.left' />
-              <a href='https://featureprobe.io/My_Project/online/feature_toggle01/targeting' target='_blank'>
-                feature toggle01
+              <a href='https://featureprobe.io/My_Project/online/campaign_enable/targeting' target='_blank'>
+                Campaign Enable
               </a>
               <FormattedMessage id='demo.task1.task.right' />
             </div>
@@ -222,8 +222,8 @@ const Home = () => {
             </div>
             <div className={styles['task-desc']}>
               <FormattedMessage id='demo.task2.task.left' />
-              <a href='https://featureprobe.io/My_Project/online/feature_toggle02/targeting' target='_blank'>
-                feature toggle02
+              <a href='https://featureprobe.io/My_Project/online/campaign_allow_list/targeting' target='_blank'>
+                Campaign Allow List
               </a>
               <FormattedMessage id='demo.task2.task.right' />
             </div>
@@ -268,8 +268,8 @@ const Home = () => {
             </div>
             <div className={styles['task-desc']}>
               <FormattedMessage id='demo.task3.task.left' />
-              <a href='https://featureprobe.io/My_Project/online/feature_toggle03/targeting' target='_blank'>
-                feature toggle03
+              <a href='https://featureprobe.io/My_Project/online/campaign_percentage_rollout/targeting' target='_blank'>
+                Campaign Percentage Rollout
               </a>
               <FormattedMessage id='demo.task3.task.right' />
             </div>
@@ -312,8 +312,8 @@ const Home = () => {
             </div>
             <div className={styles['task-desc']}>
               <FormattedMessage id='demo.task4.task.left' />
-              <a href='https://featureprobe.io/My_Project/online/feature_toggle04/targeting' target='_blank'>
-                feature toggle04
+              <a href='https://featureprobe.io/My_Project/online/promotion_campaign/targeting' target='_blank'>
+                Promotion Campaign
               </a>
               <FormattedMessage id='demo.task4.task.right' />
             </div>
