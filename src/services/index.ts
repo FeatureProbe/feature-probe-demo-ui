@@ -18,10 +18,10 @@ export const getProjectList = async<T> () => {
   });
 };
 
-export const login = async (data: ILoginParams) => {
+export const login = async<T> (data: ILoginParams) => {
   const url = `${API.loginURI}`;
   
-  return request(url, {
+  return request<T>(url, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',

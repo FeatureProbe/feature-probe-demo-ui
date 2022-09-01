@@ -9,7 +9,16 @@ import Icon from 'components/Icon';
 import Header from 'components/Header';
 import Button from 'components/Button';
 import logo from 'images/logo.svg';
+import { EventTrack } from 'utils/track';
 import styles from './index.module.scss';
+import EventTracker from 'components/EventTracker';
+
+interface ILoginData {
+  account: string;
+  organizeId: number;
+  role: string;
+  token: string;
+}
 
 const Home = () => {
   const [ isScroll, setIsScroll ] = useState<boolean>(false);
@@ -87,6 +96,8 @@ const Home = () => {
 
   useEffect(() => {
     init();
+    EventTrack.init();
+    EventTrack.pageView('/');
   }, [init]);
 
   const scrollChange = useCallback(() => {
@@ -120,15 +131,15 @@ const Home = () => {
     }, 400);
   }, []);
 
-  const onSubmit = useCallback(async (data) => {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const res: any = await login(data);
-    const { success } = res;
-    if (success) {
-      localStorage.setItem('token', res.data.token);
-      localStorage.setItem('organizeId', res.data.organizeId);
+  const onSubmit = useCallback(async (params) => {
+    const res = await login<ILoginData>(params);
+    const { success, data } = res;
+    if (success && data) {
+      localStorage.setItem('token', data.token);
+      localStorage.setItem('organizeId', String(data.organizeId));
       setLoginOpen(false);
       init();
+      EventTrack.setUserId(data.account);
     }
   }, []);
 
@@ -150,9 +161,11 @@ const Home = () => {
             <FormattedMessage id='demo.description' />
           </div>
           <div className={styles['start-box-link']}>
-            <a href='https://featureprobe.io' target='_blank'>
-              https://featureprobe.io
-            </a>
+            <EventTracker category='platform' action='platform'>
+              <a href='https://featureprobe.io' target='_blank'>
+                https://featureprobe.io
+              </a>
+            </EventTracker>
           </div>
           <div className={styles['start-box-user']}>
             <FormattedMessage id='demo.userid' />
@@ -178,9 +191,11 @@ const Home = () => {
             </div>
             <div className={styles['task-desc']}>
               <FormattedMessage id='demo.task1.task.left' />
-              <a href='https://featureprobe.io/My_Project/online/campaign_enable/targeting' target='_blank'>
-                Campaign Enable
-              </a>
+              <EventTracker category='task' action='first-task'>
+                <a href='https://featureprobe.io/My_Project/online/campaign_enable/targeting' target='_blank'>
+                  Campaign Enable
+                </a>
+              </EventTracker>
               <FormattedMessage id='demo.task1.task.right' />
             </div>
             {
@@ -222,9 +237,11 @@ const Home = () => {
             </div>
             <div className={styles['task-desc']}>
               <FormattedMessage id='demo.task2.task.left' />
-              <a href='https://featureprobe.io/My_Project/online/campaign_allow_list/targeting' target='_blank'>
-                Campaign Allow List
-              </a>
+              <EventTracker category='task' action='second-task'>
+                <a href='https://featureprobe.io/My_Project/online/campaign_allow_list/targeting' target='_blank'>
+                  Campaign Allow List
+                </a>
+              </EventTracker>
               <FormattedMessage id='demo.task2.task.right' />
             </div>
             {
@@ -268,9 +285,11 @@ const Home = () => {
             </div>
             <div className={styles['task-desc']}>
               <FormattedMessage id='demo.task3.task.left' />
-              <a href='https://featureprobe.io/My_Project/online/campaign_percentage_rollout/targeting' target='_blank'>
-                Campaign Percentage Rollout
-              </a>
+              <EventTracker category='task' action='third-task'>
+                <a href='https://featureprobe.io/My_Project/online/campaign_percentage_rollout/targeting' target='_blank'>
+                  Campaign Percentage Rollout
+                </a>
+              </EventTracker>
               <FormattedMessage id='demo.task3.task.right' />
             </div>
             {
@@ -312,9 +331,11 @@ const Home = () => {
             </div>
             <div className={styles['task-desc']}>
               <FormattedMessage id='demo.task4.task.left' />
-              <a href='https://featureprobe.io/My_Project/online/promotion_campaign/targeting' target='_blank'>
-                Promotion Campaign
-              </a>
+              <EventTracker category='task' action='fourth-task'>
+                <a href='https://featureprobe.io/My_Project/online/promotion_campaign/targeting' target='_blank'>
+                  Promotion Campaign
+                </a>
+              </EventTracker>
               <FormattedMessage id='demo.task4.task.right' />
             </div>
             <div className={styles['task-result-on']}>
@@ -415,9 +436,11 @@ const Home = () => {
                 </Form.Field>
 
                 <div className={styles['demo-footer']}>
-                  <Button className={styles['demo-btn']} type='submit' primary disabled={!!errors.account || !!errors.password}>
-                    <FormattedMessage id='login.signin' />
-                  </Button>
+                  <EventTracker category='login' action='login'>
+                    <Button className={styles['demo-btn']} type='submit' primary disabled={!!errors.account || !!errors.password}>
+                      <FormattedMessage id='login.signin' />
+                    </Button>
+                  </EventTracker>
                 </div>
               </Form>
             </div>
