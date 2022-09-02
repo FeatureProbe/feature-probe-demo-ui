@@ -132,7 +132,10 @@ const Home = () => {
   }, []);
 
   const onSubmit = useCallback(async (params) => {
-    const res = await login<ILoginData>(params);
+    const res = await login<ILoginData>({
+      source: 'demo',
+      ...params
+    });
     const { success, data } = res;
     if (success && data) {
       localStorage.setItem('token', data.token);
