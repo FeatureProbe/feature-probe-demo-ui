@@ -26,14 +26,14 @@
   "demo.task3.title": "任务三：按百分比放量",
   "demo.task3.description": "我们希望只为一定比例的用户，开放一个新的运营活动，从而减少一定的发布风险。",
   "demo.task3.task.left": "你的任务是进入功能开关“",
-  "demo.task3.task.right": "”，并调整放量的百分比。当前的放量比例是40%，此时运营活动入口对你不可见，尝试提高放量的百分比，确保你能看到运营活动入口。",
+  "demo.task3.task.right": "”，并调整放量的百分比。当放量比例较低时，运营活动入口对你不可见，尝试提高放量的百分比，确保你能看到运营活动入口。",
   "demo.task3.status.on": "运营活动入口对 userId 00003 展示为：",
   "demo.task3.status.off": "运营活动入口对 userId 00003 不展示",
 
-  "demo.task4.title": "任务四：自定义分组",
-  "demo.task4.description": "当我们想将上线一款商品，为不同的人展示不同的价格。只用true/false是不够的，在FeatureProbe中，你可以为功能开关自定义分组。",
+  "demo.task4.title": "任务四：增加返回值分组",
+  "demo.task4.description": "当我们想将一款商品对不同地区用户展示不同的定价。只用2个默认分组是不够的，在FeatureProbe中，你可以为功能开关增加自定义分组。",
   "demo.task4.task.left": "你的任务是进入功能开关“",
-  "demo.task4.task.right": "”，并新添加一个价格分组，名称和值都设为“30”，并把自己userId（00003）的返回值选择为该分组。",
+  "demo.task4.task.right": "”，并添加一个价格分组，给分组起个名称，并将值设为“30”，把含自己userId（00003）规则的返回值选择为该分组。",
   "demo.task4.status": "商品价格对 userId 00003 展示为：$",
 
   "demo.ready": "进入「功能」交付的全新时代",
