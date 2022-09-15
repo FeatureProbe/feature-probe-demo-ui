@@ -44,5 +44,7 @@
   "login.email.placeholder.text": "请输入邮箱地址",
   "login.email.invalid.text": "无效的邮箱地址",
   "login.signin": "登录",
-  "login.error.message": "登录错误，请重试!"
+  "login.error.message": "登录错误，请重试!",
+
+  "qrcode.title": "请扫描微信二维码"
 }

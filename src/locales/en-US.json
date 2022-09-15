@@ -44,5 +44,7 @@
   "login.email.placeholder.text": "Please input email address",
   "login.email.invalid.text": "Invalid email address",
   "login.signin": "Sign in",
-  "login.error.message": "Login error, please retry!"
+  "login.error.message": "Login error, please retry!",
+
+  "qrcode.title": "Scan WeChat QR code"
 }

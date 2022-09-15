@@ -325,6 +325,56 @@
   background: #EB3148 !important;
 }
 
+.service {
+  width: 44px;
+  height: 44px;
+  position: fixed;
+  bottom: 40px;
+  right: 10px;
+  background: #FFFFFF;
+  box-shadow: 0 -2px 4px 0 rgba(0,0,0,0.02), 0 2px 6px 6px rgba(0,0,0,0.02), 0 2px 6px 0 rgba(0,0,0,0.06);
+  border-radius: 100%;
+  text-align: center;
+  line-height: 44px;
+  cursor: pointer;
+}
+
+.icon-service {
+  font-size: 24px!important;
+  color: #3E76FF;
+}
+
+.qrcode-modal {
+  position: fixed;
+  right: 0;
+  bottom: 92px;
+  width: 240px;
+  background: #FFFFFF;
+  box-shadow: 0 0 6px 0 rgba(0,0,0,0.04), 0 4px 8px 8px rgba(0,0,0,0.04), 0 4px 6px 0 rgba(0,0,0,0.08);
+  border-radius: 6.4px;
+  padding: 16px 24px;
+}
+
+.qrcode-title {
+  font-family: PingFangSC-Medium;
+  font-size: 14px;
+  color: #000000;
+  font-weight: 500;
+  text-align: center;
+}
+
+.qrcode-content {
+  border: 1px solid #D7DAE0;
+  border-radius: 6px;
+  margin-top: 12px;
+}
+
+.qrcode-image {
+  width: 190px;
+  height: 250px;
+  border-radius: 10px;
+}
+
 @media (max-width: 1100px) {
   .start {
     height: auto;

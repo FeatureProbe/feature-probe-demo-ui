@@ -29,6 +29,7 @@ const Home = () => {
   const [ fourthTaskResultShow, saveFourthTaskResult ] = useState<boolean>(false);
 
   const [ loginOpen, setLoginOpen ] = useState<boolean>(false);
+  const [ isShow, showQrCode ] = useState<boolean>(false);
   const intl = useIntl();
   const INTERVAVL_TIME = 1000;
 
@@ -450,6 +451,23 @@ const Home = () => {
           </div>
         </div>
       </Modal>
+
+      {/* qr code */}
+      {
+        isShow && (
+          <div className={styles['qrcode-modal']}>
+            <div className={styles['qrcode-title']}>
+              <FormattedMessage id='qrcode.title' />
+            </div>
+            <div className={styles['qrcode-content']}>
+              <img src={require('images/qrcode.png')} className={styles['qrcode-image']} />
+            </div>
+          </div>
+        )
+      }
+      <div className={styles['service']} onMouseEnter={() => { showQrCode(true); }} onMouseLeave={() => { showQrCode(false); }}>
+        <Icon type='service' customClass={styles['icon-service']} />
+      </div>
     </div>
   );
 };
