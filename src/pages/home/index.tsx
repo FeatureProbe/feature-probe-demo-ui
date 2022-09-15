@@ -460,7 +460,7 @@ const Home = () => {
               <FormattedMessage id='qrcode.title' />
             </div>
             <div className={styles['qrcode-content']}>
-              <img src={require('images/qrcode.png')} className={styles['qrcode-image']} />
+              <img src={require('images/Wechat0715.png')} className={styles['qrcode-image']} />
             </div>
           </div>
         )
