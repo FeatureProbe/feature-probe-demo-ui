@@ -5,9 +5,13 @@
   "header.percentage": "Percentage",
   "header.variation": "Variations",
 
-  "demo.title": "Starting the demonstration",
+  "demo.title": "Interactive experience",
   "demo.description": "Here is a SPA(Single Page Application). It updates its UI according to the toggle status configured on FeatureProbe platform. Click the link below to open FeatureProbe platform and follow the steps to run the demo.",
   "demo.userid": "Your userId is 00003",
+  "demo.start.login.description": "Click the link below to open FeatureProbe platform and follow the steps to run the demo.",
+  "demo.start.unlogin.description": "Here is a SPA(Single Page Application). It updates its UI according to the toggle status configured on FeatureProbe platform. Click 'Try Now' to experience~ 🎉",
+  "demo.try.btn": "Try Now",
+  "demo.welcome": "Welcome! {account}",
 
   "demo.task1.title": "Task 1: enable/disable a feature toggle.",
   "demo.task1.description": "We have launched a marketing promotion campaign. The basic use case is inviting all end users or not letting them know the campaign by toggling the toggle between “enable” and ”disable” status.",
@@ -45,6 +49,7 @@
   "login.email.invalid.text": "Invalid email address",
   "login.signin": "Sign in",
   "login.error.message": "Login error, please retry!",
+  "login.demo.password.tip": "The quick trial environment provides password free login, and the open source version supports password customization",
 
   "qrcode.title": "Scan WeChat QR code"
 }

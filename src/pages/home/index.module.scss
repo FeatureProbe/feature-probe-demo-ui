@@ -12,12 +12,22 @@
   padding-bottom: 54px;
 }
 
+.start-h {
+  background: url('images/start-bg.png');
+  background-size: cover;
+    background-position: center;
+  position: relative;
+  padding-top: 230px;
+  margin-top: -98px;
+  padding-bottom: 154px;
+}
+
 .start-box {
   width: 985px;
   margin: 0 auto;
   padding-top: 60px;
   text-align: center;
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: rgba(255, 255, 255, 0.9);
   border-radius: 24px;
   padding-bottom: 50px;
 }
@@ -25,7 +35,7 @@
 .start-box-title {
   font-family: PingFangSC-Semibold;
   font-size: 60px;
-  color: rgba(0,0,0,0.84);
+  color: rgba(0, 0, 0, 0.84);
   line-height: 70px;
   font-weight: 600;
   padding: 0 20px;
@@ -75,6 +85,31 @@
   line-height: 56px;
 }
 
+.start-welcome {
+  font-family: PingFangSC-Medium;
+  font-size: 24px;
+  color: #282323;
+  margin-top: 15px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.line-left {
+  display: inline-block;
+  width: 87px;
+  height: 2px;
+  background-image: linear-gradient(to right, #ffffff , #282323);
+  margin-right: 20px;
+}
+
+.line-right {
+  display: inline-block;
+  width: 87px;
+  height: 2px;
+  background-image: linear-gradient(to right, #282323 , #ffffff);
+  margin-left: 20px;
+}
+
 .down {
   text-align: center;
   width: 52px;
@@ -90,6 +125,48 @@
 
 .down-icon {
   font-size: 40px !important;
+}
+
+.navs {
+  display: inline-flex;
+  justify-content: center;
+  height: 46px;
+  background: rgba(255, 255, 255, 0.4);
+  line-height: 46px;
+  margin: 32px auto 0;
+  border-radius: 8px;
+}
+
+.nav-icon {
+  margin-right: 8px;
+}
+
+.nav-item {
+  font-size: 16px;
+  color: #282323;
+  font-weight: 400;
+  margin-right: 78px;
+}
+
+.nav-item:first-child {
+  padding-left: 16px;
+}
+
+.nav-item:last-child {
+  margin-right: 0;
+  padding-right: 16px;
+}
+
+.start-btn {
+  margin-top: 40px;
+}
+
+.try-btn {
+  width: 380px;
+  height: 52px !important;
+  font-size: 20px !important;
+  border-radius: 8px !important;
+  background: #EB3148 !important;
 }
 
 .task-bg {
@@ -266,6 +343,15 @@
   margin-top: 8px;
 }
 
+.demo-password-tip {
+  background: #fffae0;
+  line-height: 18px;
+  font-size: 13px;
+  color: #592d00;
+  padding: 7px 20px;
+  border-radius: 8px;
+}
+
 .demo-form {
   margin-top: 50px;
 
@@ -276,7 +362,7 @@
     }
 
     .ui.form .field {
-      margin-bottom: 0;
+      margin-bottom: 12px !important;
     }
 
     input {

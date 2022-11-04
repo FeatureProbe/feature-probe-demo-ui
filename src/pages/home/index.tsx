@@ -22,6 +22,7 @@ interface ILoginData {
 
 const Home = () => {
   const [ isScroll, setIsScroll ] = useState<boolean>(false);
+  const [ isLogin, setIsLogin ] = useState<boolean>(false);
   const [ firstTaskStatusOn, saveFirstTaskStatus ] = useState<boolean>(false);
   const [ secondTaskStatusOn, saveSecondTaskStatus ] = useState<boolean>(false);
   const [ thirdTaskStatusOn, saveThirdTaskStatus ] = useState<boolean>(false);
@@ -85,10 +86,10 @@ const Home = () => {
     const res = await getProjectList<IProject[]>();
     const { data, code, success } = res;
     if (('' + code) === '401') {
-      setLoginOpen(true);
       return;
     }
     if (success && data) {
+      setIsLogin(true);
       if (data && data[0] && data[0].environments && data[0].environments[0]) {
         initSDK(data[0].environments[0].clientSdkKey);
       }
@@ -139,8 +140,10 @@ const Home = () => {
     });
     const { success, data } = res;
     if (success && data) {
+      console.log(data);
       localStorage.setItem('token', data.token);
       localStorage.setItem('organizeId', String(data.organizeId));
+      localStorage.setItem('account', String(data.account));
       setLoginOpen(false);
       init();
       EventTrack.setUserId(data.account);
@@ -151,237 +154,314 @@ const Home = () => {
 		<div className={styles.home}>
       <Header 
         isScroll={isScroll}
+        isLogin={isLogin}
       />
 
       {/* start task */}
-      <div className={styles.start} id='start'>
+      <div className={isLogin ? styles.start : styles['start-h']} id='start'>
         <div className={styles['start-box']}>
           <div className={styles['start-box-title']}>
             <img className={styles['start-title-ball-left']} src={require('images/ball-left.png')} alt='ball' />
             <FormattedMessage id='demo.title' />
             <img className={styles['start-title-ball-right']} src={require('images/ball-right.png')} alt='ball' />
           </div>
+
+          {
+            isLogin ? (
+              <div className={styles['start-welcome']}>
+                <span className={styles['line-left']}></span>
+                {
+                  intl.formatMessage({
+                    id: 'demo.welcome'
+                  }, {
+                    account: localStorage.getItem('account')
+                  }) 
+                }
+                <span className={styles['line-right']}></span>
+              </div>
+            ) : (
+              <div>
+                <div className={styles.navs}>
+                  <div className={styles['nav-item']}>
+                    <Icon type='enable' customClass={styles['nav-icon']} />
+                    <FormattedMessage id='header.status' />
+                  </div>
+                  <div className={styles['nav-item']}>
+                    <Icon type='user' customClass={styles['nav-icon']} />
+                    <FormattedMessage id='header.user' />
+                  </div>
+                  <div className={styles['nav-item']}>
+                    <Icon type='percentage' customClass={styles['nav-icon']} />
+                    <FormattedMessage id='header.percentage' />
+                  </div>
+                  <div className={styles['nav-item']}>
+                    <Icon type='group' customClass={styles['nav-icon']} />
+                    <FormattedMessage id='header.variation' />
+                  </div>
+                </div>
+              </div>
+            )
+          }
+
           <div className={styles['start-box-desc']}>
-            <FormattedMessage id='demo.description' />
+            { isLogin ? <FormattedMessage id='demo.start.login.description' /> : <FormattedMessage id='demo.start.unlogin.description' /> }
           </div>
-          <div className={styles['start-box-link']}>
-            <EventTracker category='platform' action='platform'>
-              <a href='https://featureprobe.io' target='_blank'>
-                https://featureprobe.io
-              </a>
-            </EventTracker>
-          </div>
-          <div className={styles['start-box-user']}>
-            <FormattedMessage id='demo.userid' />
-          </div>
+          {
+            isLogin && (
+              <>
+                <div className={styles['start-box-link']}>
+                  <EventTracker category='platform' action='platform'>
+                    <a href='https://featureprobe.io' target='_blank'>
+                      https://featureprobe.io
+                    </a>
+                  </EventTracker>
+                </div>
+                <div className={styles['start-box-user']}>
+                  <FormattedMessage id='demo.userid' />
+                </div>
+              </>
+            )
+          }
+          {
+            !isLogin && (
+              <div className={styles['start-btn']}>
+                <Button className={styles['try-btn']} type='submit' primary onClick={() => { setLoginOpen(true); }}>
+                  <FormattedMessage id='demo.try.btn' />
+                </Button>
+              </div>
+            )
+          }
         </div>
-        <div className={styles.down} onClick={gotoFirstTask}>
-          <Icon type='angle-down' customClass={styles['down-icon']} />
-        </div>
+        {
+          isLogin && (
+            <div className={styles.down} onClick={gotoFirstTask}>
+              <Icon type='angle-down' customClass={styles['down-icon']} />
+            </div>
+          )
+        }
       </div>
 
       {/* first task */}
-      <div id='firstTask'>
-        <div className={styles.task}>
-          <div className={styles['task-left']}>
-            <img className={styles['task-logo']} src={require('images/task1.png')} alt='task' />
-          </div>
-          <div className={styles['task-right']}>
-            <div className={styles['task-title']}>
-              <FormattedMessage id='demo.task1.title' />
-            </div>
-            <div className={styles['task-desc']}>
-              <FormattedMessage id='demo.task1.description' />
-            </div>
-            <div className={styles['task-desc']}>
-              <FormattedMessage id='demo.task1.task.left' />
-              <EventTracker category='task' action='first-task'>
-                <a href='https://featureprobe.io/My_Project/online/campaign_enable/targeting' target='_blank'>
-                  Campaign Enable
-                </a>
-              </EventTracker>
-              <FormattedMessage id='demo.task1.task.right' />
-            </div>
-            {
-              firstTaskStatusOn ? (
-                <div className={styles['task-result-on']}>
-                  <div>
-                    <FormattedMessage id='demo.task1.status.on' />
-                  </div>
-                  <div>
-                    {
-                      localStorage.getItem('i18n')?.replaceAll('"', '') === 'en-US' 
-                        ? <img className={styles['task-result-img']} src={require('images/task-result-en.png')} alt='result' />
-                        : <img className={styles['task-result-img']} src={require('images/task-result.png')} alt='result' />
-                    }
-                  </div>
-                </div>
-              ) : (
-                <div className={styles['task-result-off']}>
-                  <FormattedMessage id='demo.task1.status.off' />
-                </div>
-              )
-            }
-          </div>
-        </div>
-      </div>
-
-      {/* second task */}
-      <div id='secondTask' className={styles['task-bg']}>
-        <div className={styles.task}>
-          <div className={styles['task-left']}>
-            <img className={styles['task-logo']} src={require('images/task2.png')} alt='task' />
-          </div>
-          <div className={styles['task-right']}>
-            <div className={styles['task-title']}>
-              <FormattedMessage id='demo.task2.title' />
-            </div>
-            <div className={styles['task-desc']}>
-              <FormattedMessage id='demo.task2.description' />
-            </div>
-            <div className={styles['task-desc']}>
-              <FormattedMessage id='demo.task2.task.left' />
-              <EventTracker category='task' action='second-task'>
-                <a href='https://featureprobe.io/My_Project/online/campaign_allow_list/targeting' target='_blank'>
-                  Campaign Allow List
-                </a>
-              </EventTracker>
-              <FormattedMessage id='demo.task2.task.right' />
-            </div>
-            {
-              secondTaskStatusOn ? (
-                <div className={styles['task-result-on']}>
-                  <div>
-                    <FormattedMessage id='demo.task2.status.on' />
-                  </div>
-                  <div>
-                    {
-                      localStorage.getItem('i18n')?.replaceAll('"', '') === 'en-US' 
-                        ? <img className={styles['task-result-img']} src={require('images/task-result-en.png')} alt='result' />
-                        : <img className={styles['task-result-img']} src={require('images/task-result.png')} alt='result' />
-                    }
-                  </div>
-                </div>
-              ) : (
-                <div className={styles['task-result-off']}>
-                  <FormattedMessage id='demo.task2.status.off' />
-                </div>
-              )
-            }
-          </div>
-        </div>
-        <img className={styles['decoration-coin-first']} src={require('images/corn1.png')} />
-        <img className={styles['decoration-coin-second']} src={require('images/corn2.png')} />
-      </div>
-
-      {/* third task */}
-      <div id='thirdTask'>
-        <div className={styles.task}>
-          <div className={styles['task-left']}>
-            <img className={styles['task-logo']} src={require('images/task3.png')} alt='task' />
-          </div>
-          <div className={styles['task-right']}>
-            <div className={styles['task-title']}>
-              <FormattedMessage id='demo.task3.title' />
-            </div>
-            <div className={styles['task-desc']}>
-              <FormattedMessage id='demo.task3.description' />
-            </div>
-            <div className={styles['task-desc']}>
-              <FormattedMessage id='demo.task3.task.left' />
-              <EventTracker category='task' action='third-task'>
-                <a href='https://featureprobe.io/My_Project/online/campaign_percentage_rollout/targeting' target='_blank'>
-                  Campaign Percentage Rollout
-                </a>
-              </EventTracker>
-              <FormattedMessage id='demo.task3.task.right' />
-            </div>
-            {
-              thirdTaskStatusOn ? (
-                <div className={styles['task-result-on']}>
-                  <div>
-                    <FormattedMessage id='demo.task3.status.on' />
-                  </div>
-                  <div>
-                    {
-                      localStorage.getItem('i18n')?.replaceAll('"', '') === 'en-US' 
-                        ? <img className={styles['task-result-img']} src={require('images/task-result-en.png')} alt='result' />
-                        : <img className={styles['task-result-img']} src={require('images/task-result.png')} alt='result' />
-                    }
-                  </div>
-                </div>
-              ) : (
-                <div className={styles['task-result-off']}>
-                  <FormattedMessage id='demo.task3.status.off' />
-                </div>
-              )
-            }
-          </div>
-        </div>
-      </div>
-
-      {/* fourth task */}
-      <div id='fourthTask' className={styles['task-bg']}>
-        <div className={styles.task}>
-          <div className={styles['task-left']}>
-            <img className={styles['task-logo']} src={require('images/task4.png')} alt='task' />
-          </div>
-          <div className={styles['task-right']}>
-            <div className={styles['task-title']}>
-              <FormattedMessage id='demo.task4.title' />
-            </div>
-            <div className={styles['task-desc']}>
-              <FormattedMessage id='demo.task4.description' />
-            </div>
-            <div className={styles['task-desc']}>
-              <FormattedMessage id='demo.task4.task.left' />
-              <EventTracker category='task' action='fourth-task'>
-                <a href='https://featureprobe.io/My_Project/online/promotion_campaign/targeting' target='_blank'>
-                  Promotion Campaign
-                </a>
-              </EventTracker>
-              <FormattedMessage id='demo.task4.task.right' />
-            </div>
-            <div className={styles['task-result-on']}>
-              <div>
-                {
-                  intl.formatMessage({ id: 'demo.task4.status' })
-                }
-                {
-                  fourthTaskResultShow && <span>{ fourthTaskStatusOn }</span>
-                }
+      {
+        isLogin && (
+          <div id='firstTask'>
+            <div className={styles.task}>
+              <div className={styles['task-left']}>
+                <img className={styles['task-logo']} src={require('images/task1.png')} alt='task' />
               </div>
-              <div>
+              <div className={styles['task-right']}>
+                <div className={styles['task-title']}>
+                  <FormattedMessage id='demo.task1.title' />
+                </div>
+                <div className={styles['task-desc']}>
+                  <FormattedMessage id='demo.task1.description' />
+                </div>
+                <div className={styles['task-desc']}>
+                  <FormattedMessage id='demo.task1.task.left' />
+                  <EventTracker category='task' action='first-task'>
+                    <a href='https://featureprobe.io/My_Project/online/campaign_enable/targeting' target='_blank'>
+                      Campaign Enable
+                    </a>
+                  </EventTracker>
+                  <FormattedMessage id='demo.task1.task.right' />
+                </div>
                 {
-                  localStorage.getItem('i18n')?.replaceAll('"', '') === 'en-US' 
-                    ? <img className={styles['task-result-img']} src={require('images/task4-result-en.png')} alt='result' />
-                    : <img className={styles['task-result-img']} src={require('images/task4-result.png')} alt='result' />
-                }
-                {
-                  fourthTaskResultShow && (
-                    <div className={styles.price}>
-                      { fourthTaskStatusOn } 
+                  firstTaskStatusOn ? (
+                    <div className={styles['task-result-on']}>
+                      <div>
+                        <FormattedMessage id='demo.task1.status.on' />
+                      </div>
+                      <div>
+                        {
+                          localStorage.getItem('i18n')?.replaceAll('"', '') === 'en-US' 
+                            ? <img className={styles['task-result-img']} src={require('images/task-result-en.png')} alt='result' />
+                            : <img className={styles['task-result-img']} src={require('images/task-result.png')} alt='result' />
+                        }
+                      </div>
+                    </div>
+                  ) : (
+                    <div className={styles['task-result-off']}>
+                      <FormattedMessage id='demo.task1.status.off' />
                     </div>
                   )
                 }
               </div>
             </div>
           </div>
-        </div>
-        <img className={styles['decoration-coin-third']} src={require('images/corn3.png')} />
-      </div>
+        )
+      }
 
-      <div className={styles.footer}>
-        <div className={styles.up} onClick={gotoStart}>
-          <Icon type='angle-up' customClass={styles['up-icon']} />
-        </div>
-        <div>
-          <img className={styles['footer-logo']} src={logo} alt='logo' />
-        </div>
-        <div className={styles['footer-text']}>
-          <FormattedMessage id='demo.ready' />
-        </div>
-      </div>
+      {/* second task */}
+      {
+        isLogin && (
+          <div id='secondTask' className={styles['task-bg']}>
+            <div className={styles.task}>
+              <div className={styles['task-left']}>
+                <img className={styles['task-logo']} src={require('images/task2.png')} alt='task' />
+              </div>
+              <div className={styles['task-right']}>
+                <div className={styles['task-title']}>
+                  <FormattedMessage id='demo.task2.title' />
+                </div>
+                <div className={styles['task-desc']}>
+                  <FormattedMessage id='demo.task2.description' />
+                </div>
+                <div className={styles['task-desc']}>
+                  <FormattedMessage id='demo.task2.task.left' />
+                  <EventTracker category='task' action='second-task'>
+                    <a href='https://featureprobe.io/My_Project/online/campaign_allow_list/targeting' target='_blank'>
+                      Campaign Allow List
+                    </a>
+                  </EventTracker>
+                  <FormattedMessage id='demo.task2.task.right' />
+                </div>
+                {
+                  secondTaskStatusOn ? (
+                    <div className={styles['task-result-on']}>
+                      <div>
+                        <FormattedMessage id='demo.task2.status.on' />
+                      </div>
+                      <div>
+                        {
+                          localStorage.getItem('i18n')?.replaceAll('"', '') === 'en-US' 
+                            ? <img className={styles['task-result-img']} src={require('images/task-result-en.png')} alt='result' />
+                            : <img className={styles['task-result-img']} src={require('images/task-result.png')} alt='result' />
+                        }
+                      </div>
+                    </div>
+                  ) : (
+                    <div className={styles['task-result-off']}>
+                      <FormattedMessage id='demo.task2.status.off' />
+                    </div>
+                  )
+                }
+              </div>
+            </div>
+            <img className={styles['decoration-coin-first']} src={require('images/corn1.png')} />
+            <img className={styles['decoration-coin-second']} src={require('images/corn2.png')} />
+          </div>
+        )
+      }
+
+      {/* third task */}
+      {
+        isLogin && (
+          <div id='thirdTask'>
+            <div className={styles.task}>
+              <div className={styles['task-left']}>
+                <img className={styles['task-logo']} src={require('images/task3.png')} alt='task' />
+              </div>
+              <div className={styles['task-right']}>
+                <div className={styles['task-title']}>
+                  <FormattedMessage id='demo.task3.title' />
+                </div>
+                <div className={styles['task-desc']}>
+                  <FormattedMessage id='demo.task3.description' />
+                </div>
+                <div className={styles['task-desc']}>
+                  <FormattedMessage id='demo.task3.task.left' />
+                  <EventTracker category='task' action='third-task'>
+                    <a href='https://featureprobe.io/My_Project/online/campaign_percentage_rollout/targeting' target='_blank'>
+                      Campaign Percentage Rollout
+                    </a>
+                  </EventTracker>
+                  <FormattedMessage id='demo.task3.task.right' />
+                </div>
+                {
+                  thirdTaskStatusOn ? (
+                    <div className={styles['task-result-on']}>
+                      <div>
+                        <FormattedMessage id='demo.task3.status.on' />
+                      </div>
+                      <div>
+                        {
+                          localStorage.getItem('i18n')?.replaceAll('"', '') === 'en-US' 
+                            ? <img className={styles['task-result-img']} src={require('images/task-result-en.png')} alt='result' />
+                            : <img className={styles['task-result-img']} src={require('images/task-result.png')} alt='result' />
+                        }
+                      </div>
+                    </div>
+                  ) : (
+                    <div className={styles['task-result-off']}>
+                      <FormattedMessage id='demo.task3.status.off' />
+                    </div>
+                  )
+                }
+              </div>
+            </div>
+          </div>
+        )
+      }
+
+      {/* fourth task */}
+      {
+        isLogin && (
+          <div id='fourthTask' className={styles['task-bg']}>
+            <div className={styles.task}>
+              <div className={styles['task-left']}>
+                <img className={styles['task-logo']} src={require('images/task4.png')} alt='task' />
+              </div>
+              <div className={styles['task-right']}>
+                <div className={styles['task-title']}>
+                  <FormattedMessage id='demo.task4.title' />
+                </div>
+                <div className={styles['task-desc']}>
+                  <FormattedMessage id='demo.task4.description' />
+                </div>
+                <div className={styles['task-desc']}>
+                  <FormattedMessage id='demo.task4.task.left' />
+                  <EventTracker category='task' action='fourth-task'>
+                    <a href='https://featureprobe.io/My_Project/online/promotion_campaign/targeting' target='_blank'>
+                      Promotion Campaign
+                    </a>
+                  </EventTracker>
+                  <FormattedMessage id='demo.task4.task.right' />
+                </div>
+                <div className={styles['task-result-on']}>
+                  <div>
+                    {
+                      intl.formatMessage({ id: 'demo.task4.status' })
+                    }
+                    {
+                      fourthTaskResultShow && <span>{ fourthTaskStatusOn }</span>
+                    }
+                  </div>
+                  <div>
+                    {
+                      localStorage.getItem('i18n')?.replaceAll('"', '') === 'en-US' 
+                        ? <img className={styles['task-result-img']} src={require('images/task4-result-en.png')} alt='result' />
+                        : <img className={styles['task-result-img']} src={require('images/task4-result.png')} alt='result' />
+                    }
+                    {
+                      fourthTaskResultShow && (
+                        <div className={styles.price}>
+                          { fourthTaskStatusOn } 
+                        </div>
+                      )
+                    }
+                  </div>
+                </div>
+              </div>
+            </div>
+            <img className={styles['decoration-coin-third']} src={require('images/corn3.png')} />
+          </div>
+        )
+      }
+      {
+        isLogin && (
+          <div className={styles.footer}>
+            <div className={styles.up} onClick={gotoStart}>
+              <Icon type='angle-up' customClass={styles['up-icon']} />
+            </div>
+            <div>
+              <img className={styles['footer-logo']} src={logo} alt='logo' />
+            </div>
+            <div className={styles['footer-text']}>
+              <FormattedMessage id='demo.ready' />
+            </div>
+          </div>
+        )
+      }
 
       {/* login modal */}
       <Modal
@@ -438,6 +518,10 @@ const Home = () => {
                   />
                   { errors.account && <div className={styles['error-text']}>{ errors.account.message }</div> }
                 </Form.Field>
+
+                <div className={styles['demo-password-tip']}>
+                  <FormattedMessage id='login.demo.password.tip' />
+                </div>
 
                 <div className={styles['demo-footer']}>
                   <EventTracker category='login' action='login'>
