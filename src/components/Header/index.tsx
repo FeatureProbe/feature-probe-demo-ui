@@ -9,13 +9,13 @@ import styles from './index.module.scss';
 
 interface IProps {
   isScroll?: boolean
+  isLogin: boolean;
 }
 
 const Header = (props: IProps) => {
-  const { isScroll } = props;
+  const { isScroll, isLogin } = props;
   const [ showMenus, setShowMenus ] = useState<boolean>(false);
   const [ i18nMenuOpen, setI18nMenuOpen ] = useState<boolean>(false);
-
   const history = useHistory();
   const { i18n, setI18n } = I18NContainer.useContainer();
 
@@ -80,23 +80,28 @@ const Header = (props: IProps) => {
               : <img className={styles['logo-image']} src={require('images/logo-text-light.png')} alt='logo' />
           }
         </div>
-        <div className={styles.navs}>
-          <span className={styles['nav-item']} onClick={() => { gotoStart(); }}>
-            <FormattedMessage id='header.start' />
-          </span>
-          <span className={styles['nav-item']} onClick={() => { gotoFirstTask(); }}>
-            <FormattedMessage id='header.status' />
-          </span>
-          <span className={styles['nav-item']} onClick={() => { gotoSecondtTask(); }}>
-            <FormattedMessage id='header.user' />
-          </span>
-          <span className={styles['nav-item']} onClick={() => { gotoThirdTask(); }}>
-            <FormattedMessage id='header.percentage' />
-          </span>
-          <span className={styles['nav-item']} onClick={() => { gotoFourthTask(); }}>
-            <FormattedMessage id='header.variation' />
-          </span>
-        </div>
+        {
+          isLogin && (
+            <div className={styles.navs}>
+              <span className={styles['nav-item']} onClick={() => { gotoStart(); }}>
+                <FormattedMessage id='header.start' />
+              </span>
+              <span className={styles['nav-item']} onClick={() => { gotoFirstTask(); }}>
+                <FormattedMessage id='header.status' />
+              </span>
+              <span className={styles['nav-item']} onClick={() => { gotoSecondtTask(); }}>
+                <FormattedMessage id='header.user' />
+              </span>
+              <span className={styles['nav-item']} onClick={() => { gotoThirdTask(); }}>
+                <FormattedMessage id='header.percentage' />
+              </span>
+              <span className={styles['nav-item']} onClick={() => { gotoFourthTask(); }}>
+                <FormattedMessage id='header.variation' />
+              </span>
+            </div>
+          )
+        }
+        
         <Popup
           basic
           open={i18nMenuOpen}

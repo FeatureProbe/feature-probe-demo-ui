@@ -5,9 +5,13 @@
   "header.percentage": "百分比放量",
   "header.variation": "自定义分组",
 
-  "demo.title": "开始演示",
+  "demo.title": "交互式体验",
   "demo.description": "这是模拟一个使用了FeatureProbe功能开关的网页应用，通过FeatureProbe上的功能开关配置可以更新本页面行为。点击下方链接，可打开对应的FeatureProbe服务，免费体验控制本网页应用：",
   "demo.userid": "你的 userId：00003",
+  "demo.start.login.description": "点击下方链接，可打开对应的FeatureProbe服务，免费体验控制本网页应用:",
+  "demo.start.unlogin.description": "这是模拟一个使用了FeatureProbe功能开关的网页应用，通过FeatureProbe上的功能开关配置可以更新本页面行为。点击立即试用去体验吧～ 🎉",
+  "demo.try.btn": "立即试用",
+  "demo.welcome": "欢迎你！{account}",
 
   "demo.task1.title": "任务一：启用/禁用功能开关",
   "demo.task1.description": "我们新上线了一个运营活动，最简单的使用方式是为所有用户开放【启用】或关闭【禁用】它。",
@@ -45,6 +49,7 @@
   "login.email.invalid.text": "无效的邮箱地址",
   "login.signin": "登录",
   "login.error.message": "登录错误，请重试!",
+  "login.demo.password.tip": "快速试用环境提供免密登录，开源版支持密码自定义",
 
   "qrcode.title": "请扫描微信二维码"
 }
