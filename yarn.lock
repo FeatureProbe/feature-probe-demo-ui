@@ -4646,10 +4646,10 @@ fb-watchman@^2.0.0:
   dependencies:
     bser "2.1.1"
 
-featureprobe-client-sdk-js@^1.2.1:
-  version "1.2.1"
-  resolved "https://registry.npmjs.org/featureprobe-client-sdk-js/-/featureprobe-client-sdk-js-1.2.1.tgz#2a90702181e4f2f583056e3a8d10c4f44dfd74e7"
-  integrity sha512-shhHtd52nMFnryn/IZaBzGsGTFYidhLLi6Inl/QGUZMw091+ADByIr4SYt+DecBdBZRoimZOCE7DQoIjvgO1JQ==
+featureprobe-client-sdk-js@^2.1.1:
+  version "2.1.1"
+  resolved "https://registry.npmjs.org/featureprobe-client-sdk-js/-/featureprobe-client-sdk-js-2.1.1.tgz#484af0c1b32008bad9ff175c39cb45c5a3d66c2e"
+  integrity sha512-zVk8SYkVg0avjAM53uNjBhtiJdao+6E/TUzQfkYib9fiphBiI8S7ZiEAVIo0UCxTGzV92t12/eIgBFg2NQGDFA==
   dependencies:
     js-base64 "^3.7.2"
     socket.io-client "^4.5.4"

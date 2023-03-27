@@ -544,7 +544,11 @@ const Home = () => {
               <FormattedMessage id='qrcode.title' />
             </div>
             <div className={styles['qrcode-content']}>
-              <img src={require('images/Wechat0715.png')} className={styles['qrcode-image']} />
+              <img
+                alt="qrcode"
+                className={styles['qrcode-image']}
+                src="https://github.com/featureprobe/FeatureProbe/raw/main/pictures/Wechat0715.png"
+              />
             </div>
           </div>
         )
