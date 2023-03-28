@@ -547,7 +547,7 @@ const Home = () => {
               <img
                 alt="qrcode"
                 className={styles['qrcode-image']}
-                src="https://github.com/featureprobe/FeatureProbe/raw/main/pictures/Wechat0715.png"
+                src={`https://gitee.com/featureprobe/FeatureProbe/raw/main/pictures/Wechat0715.png?t=${Date.now()}`}
               />
             </div>
           </div>
